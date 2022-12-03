@@ -1,0 +1,4 @@
+Default constructor is only added when there are
+no constructors in the class
+
+* NO constructors of any type
