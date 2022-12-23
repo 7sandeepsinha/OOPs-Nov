@@ -1,5 +1,7 @@
 package inheritance;
 
+import inheritance.demoPackage.B;
+
 public class Main {
     public static void main(String[] args) {
         Student s = new Student();
@@ -7,5 +9,8 @@ public class Main {
         s.psp = 98;
         s.age = 24;
         s.login();
+
+        B b = new B();
+
     }
 }

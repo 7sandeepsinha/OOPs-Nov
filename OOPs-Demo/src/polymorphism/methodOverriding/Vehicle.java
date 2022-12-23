@@ -18,4 +18,9 @@ public class Vehicle {
     public void blowHorn(){
         System.out.println("Blowing horn in Vehicle class");
     }
+
+    public int speed(int speed){
+        System.out.println("Running with 50KM/HR");
+        return 50;
+    }
 }
