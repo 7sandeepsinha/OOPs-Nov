@@ -136,3 +136,18 @@ public class Student {
 /**
  * Create Student obj only if all the attributes are valid
  */
+
+
+// BUILDER PATTERN
+// 1. Create a static Builder class inside required class
+// 2. Create a static method called builder() -> which returns object of Builder class
+// 3. Create setters inside Builder class, which set the value and also return the Builder obj
+// 4. Create a build() method inside Builder class, which does the validations and returns a required class object
+// 5. make constructor private for Builder and Student
+
+
+// IMMUTABLE CLASS
+// 1. Make all attributes private final
+// 2. Initialise everything inside the constructor
+// 3. No setter methods
+// 4. Only getter methods, and if attribute is an object, return deep copy.
