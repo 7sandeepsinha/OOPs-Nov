@@ -1,7 +1,6 @@
 package designPatterns.factory;
 
 public class Flutter {
-
     private SupportedPlatform platform;
 
     public Flutter(SupportedPlatform platform) {
@@ -16,12 +15,7 @@ public class Flutter {
         System.out.println("This changes the refresh rate");
     }
 
-    public UIFactory createUIFactory(){ // OCP violation -> Practical Factory
-        if(platform.equals(SupportedPlatform.ANDROID)){
-            return new AndroidUIFactory();
-        }else {
-            return new IosUIFactory();
-        }
+    public UIFactory createUIFactory(){
+        return UIFactoryFactory.createUIFactory(platform);
     }
-
 }
