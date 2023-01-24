@@ -1,0 +1,14 @@
+There are two ways to define packages :
+
+1. Layer Wise / Layer Driven -> Repository/DAO[Data Access Object], Controller, Service, Models,
+ Utilities, Factories etc.
+
+2. Feature wise / domain driven ->
+
+../user/controller
+../user/repository
+../user/model/
+../user/service
+
+
+//break -> 8:25 AM
