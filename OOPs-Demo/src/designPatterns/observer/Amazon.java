@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Amazon {
     List<OrderPlacedSubscriber> orderPlacedSubscribers = new ArrayList<>();
+    List<OrderCancelledSubscriber> orderCancelledSubscribers = new ArrayList<>();
     private static Amazon instance;
 
     private Amazon() {
@@ -21,13 +22,22 @@ public class Amazon {
         return instance;
     }
 
-    public void registerSubscriber(OrderPlacedSubscriber orderPlacedSubscriber){
+    public void registerOrderPlacedSubscriber(OrderPlacedSubscriber orderPlacedSubscriber){
         orderPlacedSubscribers.add(orderPlacedSubscriber);
     }
 
-    public void unregisterSubscriber(OrderPlacedSubscriber orderPlacedSubscriber){
+    public void unregisterOrderPlacedSubscriber(OrderPlacedSubscriber orderPlacedSubscriber){
         orderPlacedSubscribers.remove(orderPlacedSubscriber);
     }
+
+    public void registerOrderCancelledSubscriber(OrderCancelledSubscriber orderCancelledSubscriber){
+        orderCancelledSubscribers.add(orderCancelledSubscriber);
+    }
+
+    public void unregisterOrderCancelledSubscriber(OrderCancelledSubscriber orderCancelledSubscriber){
+        orderCancelledSubscribers.remove(orderCancelledSubscriber);
+    }
+
 
     public void orderPlaceEvent(){
         //using a facade
@@ -38,6 +48,12 @@ public class Amazon {
         // if we use facade, we wont be able to add/remove subscribers on runtime
         for(OrderPlacedSubscriber o : orderPlacedSubscribers){
             o.orderPlaceEvent();
+        }
+    }
+
+    public void orderCancelEvent(){
+        for(OrderCancelledSubscriber o : orderCancelledSubscribers){
+            o.orderCancelledEvent();
         }
     }
 

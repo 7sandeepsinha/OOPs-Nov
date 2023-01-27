@@ -4,7 +4,7 @@ public class SellerNotifier implements OrderPlacedSubscriber{
 
     public SellerNotifier() {
         Amazon a = Amazon.getInstance();
-        a.registerSubscriber(this);
+        a.registerOrderPlacedSubscriber(this);
     }
 
     @Override
