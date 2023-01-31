@@ -5,7 +5,6 @@ public class CustomerNotifier implements OrderPlacedSubscriber, OrderCancelledSu
         Amazon a = Amazon.getInstance();
         a.registerOrderPlacedSubscriber(this);
         a.registerOrderCancelledSubscriber(this);
-
     }
 
     @Override

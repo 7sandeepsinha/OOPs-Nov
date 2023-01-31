@@ -18,14 +18,39 @@ public class Game {
 
     private Game(){}
 
+    //TODO : complete the undo method
     public void undo(){
 
     }
 
+    public void displayBoard(){
+        this.board.display();
+    }
+
     public void makeNextMove(){
-        // keep the game running
-        // if after a move, a player wins, the game will end
-        // else the game will keep running to the next player
+        Player toMovePlayer = players.get(nextPlayerIndex);
+        System.out.println(toMovePlayer.getName() + "'s move");
+        Move move = toMovePlayer.decideMove(this.board);
+
+        //TODO : validate move
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+
+        System.out.println("Move happened : row ->  " + row  + ", col -> " + col);
+        board.getBoard().get(row).get(col).setCellState(CellState.FILLED);
+        board.getBoard().get(row).get(col).setPlayer(toMovePlayer);
+
+        Move playedMove = new Move(toMovePlayer, board.getBoard().get(row).get(col));
+        this.moves.add(playedMove);
+
+        if (gameWinningStrategy.updateBoardAndCheckWinner(
+                board, toMovePlayer, playedMove)
+        ) {
+            gameStatus = GameStatus.ENDED;
+            winner = toMovePlayer;
+        }
+        nextPlayerIndex++;
+        nextPlayerIndex %= players.size();
     }
 
     public Board getBoard() {
@@ -97,7 +122,7 @@ public class Game {
             return this;
         }
 
-        public Builder setPlayer(List<Player> players){
+        public Builder setPlayers(List<Player> players){
             this.players = players;
             return this;
         }
@@ -129,7 +154,7 @@ public class Game {
             game.setMoves(new ArrayList<>());
             game.setBoard(new Board(dimension));
             game.setNextPlayerIndex(0);
-            game.setGameWinningStrategy(new EfficientGameWinningStrategy());
+            game.setGameWinningStrategy(new EfficientGameWinningStrategy(dimension));
 
             return game;
         }

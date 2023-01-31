@@ -40,11 +40,12 @@ public class Amazon {
 
 
     public void orderPlaceEvent(){
-        //using a facade
-        // scmNotifier.notify();
-        // sellerNotifier.notify();
-        // customerNotifier.notify();
-        // analyticsService.notify();
+        // using a facade
+        // scmNotifier.notifySCM();
+        // sellerNotifier.notifySeller();
+        // customerNotifier.notifyCustomer();
+        // analyticsService.consumeAnalytics();
+        // paymentNotifier.notifyForPayment();
         // if we use facade, we wont be able to add/remove subscribers on runtime
         for(OrderPlacedSubscriber o : orderPlacedSubscribers){
             o.orderPlaceEvent();
@@ -67,3 +68,5 @@ Publisher has 3 major things :
 
 a.orderPlaceEvent();
  */
+
+// break -> 8:35 AM
