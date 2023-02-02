@@ -30,3 +30,8 @@ MVC -> Single codebase contains -> both UI code[web-inf] and backend code, it
 contains a deployment descriptor
 
 Boot -> contains only backend codebase[tweaking for UI is possible]
+
+
+****Style of coding ->
+1. skeleton -> controller -> service -> repo
+2. code -> repo[test] -> service[test] -> controller[test]
