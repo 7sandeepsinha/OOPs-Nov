@@ -1,0 +1,32 @@
+MVC -> Model View Controller
+
+Whenever we go to a restaurant
+1. Sit on table and choose items from the menu
+2. You tell your order to waiter
+3. Waiter goes to chef/cook and asks to make the items
+4. Cook will go to storage, bring out the raw materials and cook the food
+5. Once cooked, waiter will bring to you
+
+Journey on a website :
+1. You get choose or request from a lot of options on UI -> VIEW
+2. Waiter -> Controller -> which accepts request and returns a response
+
+Controller -> which is the first entry point of a request
+
+
+3. Model -> represent the storage
+
+Bonus point -> Kitchen and the cook represent the service/repository layer. [Business logic]
+
+FE code|       Backend Code
+UI <-> Controller <-> Service <-> Repository <-> Database
+       accepts req    business    talks to DB    stores the data
+       return resp    logic
+       validation
+       auth and author
+
+# What is the difference between Spring MVC and Spring Boot ?
+MVC -> Single codebase contains -> both UI code[web-inf] and backend code, it
+contains a deployment descriptor
+
+Boot -> contains only backend codebase[tweaking for UI is possible]
