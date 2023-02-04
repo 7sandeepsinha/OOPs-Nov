@@ -35,3 +35,14 @@ Boot -> contains only backend codebase[tweaking for UI is possible]
 ****Style of coding ->
 1. skeleton -> controller -> service -> repo
 2. code -> repo[test] -> service[test] -> controller[test]
+
+
+Flow of call ->
+1. Controller - contains APIs, accepts DTO, validation, auth and authen, data clean up
+2. Service - contains the business logic, accepts only required attributes
+3. Repository - contains logic to talk to DB, methods to do CRUD operations, operations are on models
+
+Flow of code -
+1. Models
+2. Skeleton -> controller -> service -> repo
+3. repo[test] -> service[test] -> controller[test]
