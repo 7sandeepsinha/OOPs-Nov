@@ -3,6 +3,7 @@ package parkingLot.model;
 public class Gate extends BaseModel {
     private GateType gateType;
     private Operator operator; // this can be a list of operators
+    //private int floor;
 
     public GateType getGateType() {
         return gateType;

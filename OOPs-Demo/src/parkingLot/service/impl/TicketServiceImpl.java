@@ -1,13 +1,16 @@
-package parkingLot.service;
+package parkingLot.service.impl;
 
-import parkingLot.SpotAssignmentStrategy;
+import parkingLot.strategy.spotAssignmentStrategy.SpotAssignmentStrategy;
 import parkingLot.exception.NoParkingSpotAvailableException;
 import parkingLot.model.*;
 import parkingLot.repository.TicketRepository;
+import parkingLot.service.GateService;
+import parkingLot.service.TicketService;
+import parkingLot.service.VehicleService;
 
 import java.util.Date;
 
-public class TicketServiceImpl implements TicketService{
+public class TicketServiceImpl implements TicketService {
     private TicketRepository ticketRepository;
     private VehicleService vehicleService;
     private GateService gateService;
